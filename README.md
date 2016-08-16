@@ -9,7 +9,7 @@ PHP 版本 5.3 及以上
 ## 安装
 ### 手动引入
 ```php
-require_once('/path/to/Yunxizhibo-php/Yunxizhibo.php');
+require_once('/path/to/Yunxizhibo/Yunxizhibo.php');
 ```
 
 ### 接入方法
