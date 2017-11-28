@@ -62,6 +62,8 @@ namespace Yunxizhibo;
  *
  * $totalNum = $data["totalNum"]; //围观人数
  *
+ * ...
+ *
  */
 class Yunxizhibo
 {
@@ -116,10 +118,11 @@ class Yunxizhibo
         return false;
     }
 
+
     /**
      * 获取活动资料
-     * @param string $activityId
-     * @return array [id,title,startTime]
+     * @param $activityId
+     * @return bool|array [id,title,startTime]
      */
     public function getActivityInfo($activityId){
         $param = array(
@@ -148,7 +151,7 @@ class Yunxizhibo
     /**
      * 获取直播视频资料
      * @param string $activityId
-     * @return array [id,title,businessId,paid,startTime,createdAt,updatedAt,status]
+     * @return boolean|array [id,title,businessId,paid,startTime,createdAt,updatedAt,status]
      */
     public function getLivestreamInfo($activityId){
         $param = array(
@@ -170,6 +173,76 @@ class Yunxizhibo
             return $json['data'];
 
         }
+        return false;
+    }
+
+    /**
+     * 获取评论列表
+     * @param int $page
+     * @param int $pageSize
+     * @return boolean|array
+     */
+    public function getCommentsList($lsId, $page=0,$pageSize=20){
+
+        $param = array(
+            'lsId' => $lsId,
+            'page' => $page,
+            'pageSize' => $pageSize
+        );
+
+        $result = $this->http_post(self::API_URL_PREFIX.self::COMMENTS_LIST, $param);
+
+        if ($result)
+        {
+            $json = json_decode($result,true);
+
+            if (!$json || $json['statusCode'] != 200) {
+                $this->errCode = $json['statusCode'];
+                $this->errMsg = $json['msg'];
+                return false;
+            }
+
+            return $json['data'];
+        }
+
+        return false;
+    }
+
+
+    /**
+     * 保存评论
+     * @param $lsId
+     * @param $content
+     * @param $userId
+     * @param $avatar
+     * @param $username
+     * @return bool
+     */
+    public function saveComment($lsId, $content ,$userId, $avatar, $username){
+
+        $param = array(
+            'lsId' => $lsId,
+            'content' => $content,
+            'userId' => $userId,
+            'avatar' => $avatar,
+            'username' => $username
+        );
+
+        $result = $this->http_post(self::API_URL_PREFIX.self::COMMENTS_LIST, $param);
+
+        if ($result)
+        {
+            $json = json_decode($result,true);
+
+            if (!$json || $json['statusCode'] != 200) {
+                $this->errCode = $json['statusCode'];
+                $this->errMsg = $json['msg'];
+                return false;
+            }
+
+            return $json['data'];
+        }
+
         return false;
     }
 
