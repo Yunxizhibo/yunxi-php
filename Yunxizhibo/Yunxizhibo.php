@@ -71,6 +71,8 @@ class Yunxizhibo
     const ACTIVITY_lIST_URL = '/activity-list?';
     const ACTIVITY_INFO_URL = '/activity-info?';
     const LIVESTREAM_INFO_URL = '/livestream-info?';
+    const COMMENTS_LIST = '/comments-list?';
+    const SAVE_COMMENT = '/save-comment?';
 
     protected $accessKey;
     protected $secretKey;
