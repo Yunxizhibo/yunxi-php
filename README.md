@@ -1,30 +1,30 @@
-### ÔÆÏ¬Ö±²¥PHP-SDK, ¹Ù·½API²¿·Ö
+### äº‘çŠ€ç›´æ’­PHP-SDK, å®˜æ–¹APIéƒ¨åˆ†
 @author  holger <whjsjq@gmail.com>
 @link
 @version 1.0
 
-## °æ±¾ÒªÇó
-PHP °æ±¾ 5.3 ¼°ÒÔÉÏ
+## ç‰ˆæœ¬è¦æ±‚
+PHP ç‰ˆæœ¬ 5.3 åŠä»¥ä¸Š
 
-## °²×°
-### ÊÖ¶¯ÒıÈë
+## å®‰è£…
+### æ‰‹åŠ¨å¼•å…¥
 ```php
 require_once('/path/to/Yunxizhibo/Yunxizhibo.php');
 ```
 
-### ½ÓÈë·½·¨
-### ³õÊ¼»¯
+### æ¥å…¥æ–¹æ³•
+### åˆå§‹åŒ–
 ```php
 $accessKey = 'accessKey';
 $secretKey = 'secretKey';
  ```
 
-### ÌîĞ´AccessKey¡¢SecretKey
+### å¡«å†™AccessKeyã€SecretKey
  ```php
 $yxObj = new Yunxizhibo($accessKey, $secretKey);
  ```
 
-###»ñÈ¡»î¶¯ÁĞ±í
+###è·å–æ´»åŠ¨åˆ—è¡¨
 ```php
 $data = $yxObj->getActivityList();
 
@@ -33,16 +33,16 @@ if(empty($data)) {
    echo $yxObj->$errMsg;
 }
 ```
-### ÁĞ±í
+### åˆ—è¡¨
  ```php
 $list = $data["activitys"];
 ```
-### Ò³Êı
+### é¡µæ•°
  ```php
 $pageCount = $data["pageCount"];
 ```
 
-### »ñÈ¡»î¶¯×ÊÁÏ
+### è·å–æ´»åŠ¨èµ„æ–™
  ```php
  $data = $yxObj->getActivityInfo();
 
@@ -52,13 +52,13 @@ if(empty($data)) {
 }
 ```
 
-### »î¶¯ÏêÇé
+### æ´»åŠ¨è¯¦æƒ…
 ```php
 $activity = $data["activity"];
 ```
 
 
-### »ñÈ¡Ö±²¥ÊÓÆµ×ÊÁÏ
+### è·å–ç›´æ’­è§†é¢‘èµ„æ–™
 ```php
 $data = $yxObj->getLivestreamInfo();
 
@@ -67,29 +67,43 @@ if(empty($data)) {
    echo $yxObj->$errMsg;
 }
 ```
-### Ö±²¥ÊÓÆµÏêÇé
+### ç›´æ’­è§†é¢‘è¯¦æƒ…
 ```php
 $livestream = $data["livestream"];
 ```
-### Î¢ĞÅÇ¶ÈëµØÖ·
+### å¾®ä¿¡åµŒå…¥åœ°å€
 ```php
 $wechatPlayUrl = $data["wechatPlayUrl"];
 ```
-### ÍøÒ³Ç¶ÈëµØÖ·
+### ç½‘é¡µåµŒå…¥åœ°å€
 ```php
 $webPlayUrl = $data["webPlayUrl"];
 ```
-### appÇ¶ÈëµØÖ·
+### appåµŒå…¥åœ°å€
 ```php
 $appPlayUrl = $data["appPlayUrl"];
 ```
-### ²¥·ÅÆ÷Ç¶ÈëµØÖ·
+### æ’­æ”¾å™¨åµŒå…¥åœ°å€
 ```php
 $embedPlayerUrl = $data["embedPlayerUrl"];
 ```
-### Î§¹ÛÈËÊı
+### å›´è§‚äººæ•°
 ```php
 $totalNum = $data["totalNum"];
+```
+### è¯„è®º
+```php
+$comments = $data["comments"];
+```
+
+### å†…å®¹æ¨¡å—
+```php
+$templateData = $data["templateData"];
+```
+
+### å¹¿å‘Šä½
+```php
+$bannerData = $data["bannerData"];
 ```
 
 
